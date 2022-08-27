@@ -1,0 +1,203 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format: {customer_id}-{#####}",
+ "creation": "2022-03-24 11:43:02.358913",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "customer_id",
+  "column_break_2",
+  "customer",
+  "issuereturn_section",
+  "purpose",
+  "54_column",
+  "issue_log",
+  "article",
+  "section_break_4",
+  "borrower_date",
+  "submission_date",
+  "column_break_7",
+  "due_date",
+  "extented_date",
+  "section_break_10",
+  "book_condition",
+  "section_break_17",
+  "fine_amount_per_day",
+  "column_break_13",
+  "total_fine_amount",
+  "amended_from",
+  "section_break_21",
+  "issued_book_log",
+  "article_location"
+ ],
+ "fields": [
+  {
+   "fieldname": "customer_id",
+   "fieldtype": "Link",
+   "label": "Customer ID",
+   "options": "Library Membership",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "issue_log.article",
+   "fieldname": "article",
+   "fieldtype": "Link",
+   "label": "Article",
+   "options": "Library Article",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fetch_from": "issue_log.borrower_date",
+   "fieldname": "borrower_date",
+   "fieldtype": "Date",
+   "label": "Borrower Date",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "issue_log.due_date",
+   "fieldname": "due_date",
+   "fieldtype": "Date",
+   "label": "Due Date",
+   "read_only": 1
+  },
+  {
+   "default": "Today",
+   "depends_on": "eval:doc.purpose==\"Return\"",
+   "fieldname": "submission_date",
+   "fieldtype": "Date",
+   "label": "Submission Date"
+  },
+  {
+   "depends_on": "eval:doc.purpose==\"Return\"",
+   "fieldname": "extented_date",
+   "fieldtype": "Int",
+   "label": "Extented Date"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_4",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_10",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fetch_from": "customer_id.full_name",
+   "fieldname": "customer",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Customer "
+  },
+  {
+   "fetch_from": "issue_log.fine_amount_per_day",
+   "fieldname": "fine_amount_per_day",
+   "fieldtype": "Currency",
+   "label": "Fine Amount/Day",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.purpose==\"Return\"",
+   "fieldname": "total_fine_amount",
+   "fieldtype": "Currency",
+   "label": "Total Fine Amount"
+  },
+  {
+   "fieldname": "column_break_13",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "issuereturn_section",
+   "fieldtype": "Section Break",
+   "label": "Issue/Return"
+  },
+  {
+   "fieldname": "purpose",
+   "fieldtype": "Select",
+   "label": "Purpose",
+   "options": "Issue\nReturn"
+  },
+  {
+   "fieldname": "54_column",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.purpose==\"Return\"",
+   "fieldname": "issue_log",
+   "fieldtype": "Link",
+   "label": "Issue Log",
+   "options": "Library Log"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Library Log",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_21",
+   "fieldtype": "Section Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "issued_book_log",
+   "fieldtype": "Table",
+   "label": "Issued Book Log",
+   "options": "Issued Book Log",
+   "read_only": 1
+  },
+  {
+   "fieldname": "book_condition",
+   "fieldtype": "Select",
+   "label": "Book Condition",
+   "options": "Acceptable\n20% Damage\nReject"
+  },
+  {
+   "fieldname": "section_break_17",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "article_location",
+   "fieldtype": "Select",
+   "label": "Article Location"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2022-04-29 15:24:35.103505",
+ "modified_by": "Administrator",
+ "module": "Library",
+ "name": "Library Log",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "customer"
+}

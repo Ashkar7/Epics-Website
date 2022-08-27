@@ -1,0 +1,46 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2022-04-12 14:51:28.147950",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "article",
+  "library_log",
+  "issued_date"
+ ],
+ "fields": [
+  {
+   "fieldname": "article",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Article",
+   "options": "Library Article"
+  },
+  {
+   "fieldname": "library_log",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Library Log",
+   "options": "Library Log"
+  },
+  {
+   "fieldname": "issued_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Issued Date"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2022-04-13 12:21:16.807712",
+ "modified_by": "Administrator",
+ "module": "Library",
+ "name": "Issued Books",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}
